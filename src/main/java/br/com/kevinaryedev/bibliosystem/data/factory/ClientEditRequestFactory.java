@@ -1,14 +1,21 @@
 package br.com.kevinaryedev.bibliosystem.data.factory;
 
 import br.com.kevinaryedev.bibliosystem.data.config.ClientDataConfig;
+import br.com.kevinaryedev.bibliosystem.data.provider.DataProvider;
 import br.com.kevinaryedev.bibliosystem.model.request.ClientEditRequest;
 
 public class ClientEditRequestFactory {
-
+    private static ClientEditRequestFactory instance;
+    public static ClientEditRequestFactory getInstance() {
+        if (instance == null) {
+            instance = new ClientEditRequestFactory();
+        }
+        return instance;
+    }
     private ClientEditRequest validClientEditRequest;
 
-    public ClientEditRequestFactory(ClientEditRequest validClientEditRequest) {
-        this.validClientEditRequest = validClientEditRequest;
+    public ClientEditRequestFactory() {
+        this.validClientEditRequest = DataProvider.getValidClientEditRequest();
     }
     public ClientEditRequest createClientEditRequestValid(){
         return validClientEditRequest.clone();

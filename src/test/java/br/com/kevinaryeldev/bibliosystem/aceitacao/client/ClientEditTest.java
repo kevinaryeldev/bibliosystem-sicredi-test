@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 
 public class ClientEditTest {
     PreloadData preloadData = new PreloadData();
-    ClientEditRequestFactory clientEditRequestFactory = new ClientEditRequestFactory(DataProvider.getValidClientEditRequest());
+    ClientEditRequestFactory clientEditRequestFactory = ClientEditRequestFactory.getInstance();
     @Test
     @Tag("aceitacao")
     @Tag("cliente")

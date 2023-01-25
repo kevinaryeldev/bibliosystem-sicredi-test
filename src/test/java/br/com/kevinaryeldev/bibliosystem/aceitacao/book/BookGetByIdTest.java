@@ -3,14 +3,17 @@ package br.com.kevinaryeldev.bibliosystem.aceitacao.book;
 import br.com.kevinaryedev.bibliosystem.client.BookClient;
 import br.com.kevinaryedev.bibliosystem.model.response.BookResponse;
 import br.com.kevinaryedev.bibliosystem.utils.PreloadData;
-import io.qameta.allure.*;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.Assert;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-public class BookDeleteTest {
+public class BookGetByIdTest {
     PreloadData preloadData = new PreloadData();
 
     @Test
@@ -19,13 +22,12 @@ public class BookDeleteTest {
     @Owner("Kevin Aryel")
     @Epic("Aceitação")
     @Feature("Livro")
-    @Story("Deletar livro")
-    @Description("Deve deletar um livro com sucesso")
-    public void deveDeletarUmLivroComSucesso() {
+    @Story("Buscar livro por id")
+    public void deveRetornarUmLivroComSucesso() {
         BookResponse bookResponse = preloadData.book();
         String id = bookResponse.getId().toString();
-        Response response = BookClient.deleteBook(id);
-        Assert.assertEquals(HttpStatus.SC_NO_CONTENT, response.getStatusCode());
+        Response response = BookClient.findBookById(id);
+        Assert.assertEquals(HttpStatus.SC_OK, response.getStatusCode());
     }
     @Test
     @Tag("aceitacao")
@@ -33,12 +35,10 @@ public class BookDeleteTest {
     @Owner("Kevin Aryel")
     @Epic("Aceitação")
     @Feature("Livro")
-    @Story("Deletar livro")
-    @Description("Deve retornar erro ao tentar deletar um livro com id inválido")
-    public void deveRetornarErroAoTentarDeletarUmLivroComIdInvalido() {
+    @Story("Buscar livro por id")
+    public void deveRetornarErroAoTentarBuscarUmLivroComIdInvalido() {
         String id = "0";
-        Response response = BookClient.deleteBook(id);
+        Response response = BookClient.findBookById(id);
         Assert.assertEquals(HttpStatus.SC_NOT_FOUND, response.getStatusCode());
     }
-
 }

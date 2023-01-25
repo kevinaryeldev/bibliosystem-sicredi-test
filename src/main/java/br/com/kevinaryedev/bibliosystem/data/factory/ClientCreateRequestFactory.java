@@ -1,13 +1,21 @@
 package br.com.kevinaryedev.bibliosystem.data.factory;
 
 import br.com.kevinaryedev.bibliosystem.data.config.ClientDataConfig;
+import br.com.kevinaryedev.bibliosystem.data.provider.DataProvider;
 import br.com.kevinaryedev.bibliosystem.model.request.ClientCreateRequest;
 
 public class ClientCreateRequestFactory {
+        private static ClientCreateRequestFactory instance;
         private ClientCreateRequest validClientCreateRequest;
+        public static ClientCreateRequestFactory getInstance() {
+            if (instance == null) {
+                instance = new ClientCreateRequestFactory();
+            }
+            return instance;
+        }
 
-        public ClientCreateRequestFactory(ClientCreateRequest validClientCreateRequest) {
-            this.validClientCreateRequest = validClientCreateRequest;
+        private ClientCreateRequestFactory() {
+            this.validClientCreateRequest = DataProvider.getValidClientCreateRequest();
         }
 
         public ClientCreateRequest createClientCreateRequestValid(){

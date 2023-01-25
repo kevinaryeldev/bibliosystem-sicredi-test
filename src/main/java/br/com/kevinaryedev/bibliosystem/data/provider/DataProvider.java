@@ -1,10 +1,9 @@
 package br.com.kevinaryedev.bibliosystem.data.provider;
 
+import br.com.kevinaryedev.bibliosystem.data.config.BookDataConfig;
 import br.com.kevinaryedev.bibliosystem.data.config.ClientDataConfig;
-import br.com.kevinaryedev.bibliosystem.model.request.ClientCreateRequest;
-import br.com.kevinaryedev.bibliosystem.model.request.ClientCreateRequestBuilder;
-import br.com.kevinaryedev.bibliosystem.model.request.ClientEditRequest;
-import br.com.kevinaryedev.bibliosystem.model.request.ClientEditRequestBuilder;
+import br.com.kevinaryedev.bibliosystem.data.config.CopyDataConfig;
+import br.com.kevinaryedev.bibliosystem.model.request.*;
 
 public class DataProvider {
     public static ClientCreateRequest getValidClientCreateRequest(){
@@ -21,6 +20,24 @@ public class DataProvider {
                 .name(ClientDataConfig.validName())
                 .gender(ClientDataConfig.validGender())
                 .email(ClientDataConfig.validEmail())
+                .build();
+    }
+    public static BookCreateRequest getValidBookCreateRequest(){
+        return new BookCreateRequestBuilder()
+                .title(BookDataConfig.validTitle())
+                .code(BookDataConfig.validCode())
+                .subtitle(BookDataConfig.validSubtitle())
+                .publisher(BookDataConfig.validPublisher())
+                .author(BookDataConfig.validAuthor())
+                .cdd(BookDataConfig.validCdd())
+                .build();
+    }
+    public static CopyCreateRequest getValidCopyCreateRequest(){
+        return new CopyCreateRequestBuilder()
+                .year(CopyDataConfig.validYear())
+                .property_code(CopyDataConfig.validPropertyCode())
+                .edition(CopyDataConfig.validEdition())
+                .id_book(0)
                 .build();
     }
 }

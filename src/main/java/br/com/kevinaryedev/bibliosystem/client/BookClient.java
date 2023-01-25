@@ -1,67 +1,57 @@
 package br.com.kevinaryedev.bibliosystem.client;
 
-import br.com.kevinaryedev.bibliosystem.data.changeless.ClientData;
+import br.com.kevinaryedev.bibliosystem.data.changeless.BookData;
 import br.com.kevinaryedev.bibliosystem.spec.RequestSpec;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
 
-public class ClientClient {
-    public static Response createClient(String json){
+public class BookClient {
+
+    public static Response createBook(String json){
         return given()
                 .log().all()
                 .spec(RequestSpec.noAuth())
                 .body(json)
             .when()
-                .post(ClientData.SERVICE_CREATE)
+                .post(BookData.SERVICE_CREATE)
             .then()
                 .log().all()
                 .extract().response()
         ;
     }
-    public static Response listClient(Integer page, Integer size){
+    public static Response listBook(Integer page, Integer size){
         return given()
                 .log().all()
                 .spec(RequestSpec.noAuthWithQueryParamPagination(page,size))
             .when()
-                .get(ClientData.SERVICE_FIND_ALL)
+                .get(BookData.SERVICE_FIND_ALL)
             .then()
                 .log().all()
                 .extract().response()
         ;
     }
-    public static Response editClient(String id, String json){
-        return given()
-                .log().all()
-                .spec(RequestSpec.noAuthWithPathParamId(id))
-                .body(json)
-            .when()
-                .put(ClientData.SERVICE_UPDATE)
-            .then()
-                .log().all()
-                .extract().response()
-        ;
-    }
-    public static Response deleteClient(String id){
+    public static Response deleteBook(String id){
         return given()
                 .log().all()
                 .spec(RequestSpec.noAuthWithPathParamId(id))
             .when()
-                .delete(ClientData.SERVICE_DELETE)
+                .delete(BookData.SERVICE_DELETE)
             .then()
                 .log().all()
                 .extract().response()
         ;
     }
-    public static Response findClientById(String id){
+    public static Response findBookById(String id){
         return given()
                 .log().all()
                 .spec(RequestSpec.noAuthWithPathParamId(id))
             .when()
-                .get(ClientData.SERVICE_FIND_BY_ID)
+                .get(BookData.SERVICE_FIND_BY_ID)
             .then()
                 .log().all()
                 .extract().response()
         ;
     }
+
 }

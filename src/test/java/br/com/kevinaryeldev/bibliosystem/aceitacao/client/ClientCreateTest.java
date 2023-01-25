@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 
 public class ClientCreateTest {
 
-    ClientCreateRequestFactory clientCreateRequestFactory = new ClientCreateRequestFactory(DataProvider.getValidClientCreateRequest());
+    ClientCreateRequestFactory clientCreateRequestFactory = ClientCreateRequestFactory.getInstance();
 
     @Test
     @Tag("aceitacao")
