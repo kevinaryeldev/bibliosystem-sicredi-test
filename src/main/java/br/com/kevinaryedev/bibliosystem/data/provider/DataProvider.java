@@ -3,6 +3,7 @@ package br.com.kevinaryedev.bibliosystem.data.provider;
 import br.com.kevinaryedev.bibliosystem.data.config.BookDataConfig;
 import br.com.kevinaryedev.bibliosystem.data.config.ClientDataConfig;
 import br.com.kevinaryedev.bibliosystem.data.config.CopyDataConfig;
+import br.com.kevinaryedev.bibliosystem.data.config.LoanDataConfig;
 import br.com.kevinaryedev.bibliosystem.model.request.*;
 
 public class DataProvider {
@@ -38,6 +39,12 @@ public class DataProvider {
                 .property_code(CopyDataConfig.validPropertyCode())
                 .edition(CopyDataConfig.validEdition())
                 .id_book(0)
+                .build();
+    }
+    public static LoanCreateRequest getInvalidLoanCreateRequest(){
+        return new LoanCreateRequestBuilder()
+                .idClient(LoanDataConfig.idClient())
+                .idCopy(LoanDataConfig.idCopy())
                 .build();
     }
 }

@@ -1,0 +1,62 @@
+{
+  "type": "object",
+  "required": [
+    "totalElements",
+    "pageQuantity",
+    "page",
+    "size",
+    "elements"
+  ],
+  "properties": {
+    "totalElements": {
+      "type": "number"
+    },
+    "pageQuantity": {
+      "type": "number"
+    },
+    "page": {
+      "type": "number"
+    },
+    "size": {
+      "type": "number"
+    },
+    "elements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "code",
+          "title",
+          "subtitle",
+          "publisher",
+          "author",
+          "cdd",
+          "id"
+        ],
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "subtitle": {
+            "type": ["null", "string"]
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "cdd": {
+            "type": "string"
+          },
+          "id": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "required": [
+    "totalElements",
+    "pageQuantity",
+    "page",
+    "size",
+    "elements"
+  ],
+  "properties": {
+    "totalElements": {
+      "type": "number"
+    },
+    "pageQuantity": {
+      "type": "number"
+    },
+    "page": {
+      "type": "number"
+    },
+    "size": {
+      "type": "number"
+    },
+    "elements": {
+      "type": "array",
+      "items": [{
+
+      }, {
+        "type": "object",
+        "required": [
+          "year",
+          "property_code",
+          "edition",
+          "id_book",
+          "id"
+        ],
+        "properties": {
+          "year": {
+            "type": "string"
+          },
+          "property_code": {
+            "type": "string"
+          },
+          "edition": {
+            "type": "string"
+          },
+          "id_book": {
+            "type": "number"
+          },
+          "id": {
+            "type": "number"
+          }
+        }
+      }]
+    }
+  }
+}
