@@ -1,7 +1,6 @@
 package br.com.kevinaryeldev.bibliosystem.aceitacao.client;
 
 import br.com.kevinaryedev.bibliosystem.data.factory.ClientCreateRequestFactory;
-import br.com.kevinaryedev.bibliosystem.data.provider.DataProvider;
 import br.com.kevinaryedev.bibliosystem.model.request.ClientCreateRequest;
 import br.com.kevinaryedev.bibliosystem.model.response.ClientResponse;
 import br.com.kevinaryedev.bibliosystem.client.ClientClient;
