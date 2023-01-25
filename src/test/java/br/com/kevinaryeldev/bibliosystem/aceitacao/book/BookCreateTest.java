@@ -4,6 +4,7 @@ import br.com.kevinaryedev.bibliosystem.client.BookClient;
 import br.com.kevinaryedev.bibliosystem.data.factory.BookCreateRequestFactory;
 import br.com.kevinaryedev.bibliosystem.model.request.BookCreateRequest;
 import br.com.kevinaryedev.bibliosystem.utils.Utils;
+import br.com.kevinaryeldev.bibliosystem.BaseTest;
 import io.qameta.allure.*;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
@@ -11,7 +12,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-public class BookCreateTest {
+public class BookCreateTest  extends BaseTest {
     BookCreateRequestFactory bookCreateRequestFactory = BookCreateRequestFactory.getInstance();
     @Test
     @Tag("aceitacao")

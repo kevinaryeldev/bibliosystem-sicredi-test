@@ -3,13 +3,14 @@ package br.com.kevinaryeldev.bibliosystem.aceitacao.client;
 import br.com.kevinaryedev.bibliosystem.client.ClientClient;
 import br.com.kevinaryedev.bibliosystem.model.response.ClientResponse;
 import br.com.kevinaryedev.bibliosystem.utils.PreloadData;
+import br.com.kevinaryeldev.bibliosystem.BaseTest;
 import io.qameta.allure.*;
 import org.apache.http.HttpStatus;
 import org.junit.Assert;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import io.restassured.response.Response;
-public class ClientGetByIdTest {
+public class ClientGetByIdTest  extends BaseTest {
 
     PreloadData preloadData = new PreloadData();
 

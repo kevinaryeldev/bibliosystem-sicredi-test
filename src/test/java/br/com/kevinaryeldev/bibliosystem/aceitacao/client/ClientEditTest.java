@@ -2,18 +2,18 @@ package br.com.kevinaryeldev.bibliosystem.aceitacao.client;
 
 import br.com.kevinaryedev.bibliosystem.client.ClientClient;
 import br.com.kevinaryedev.bibliosystem.data.factory.ClientEditRequestFactory;
-import br.com.kevinaryedev.bibliosystem.data.provider.DataProvider;
 import br.com.kevinaryedev.bibliosystem.model.request.ClientEditRequest;
 import br.com.kevinaryedev.bibliosystem.model.response.ClientResponse;
 import br.com.kevinaryedev.bibliosystem.utils.PreloadData;
 import br.com.kevinaryedev.bibliosystem.utils.Utils;
+import br.com.kevinaryeldev.bibliosystem.BaseTest;
 import io.qameta.allure.*;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-public class ClientEditTest {
+public class ClientEditTest  extends BaseTest {
     PreloadData preloadData = new PreloadData();
     ClientEditRequestFactory clientEditRequestFactory = ClientEditRequestFactory.getInstance();
     @Test

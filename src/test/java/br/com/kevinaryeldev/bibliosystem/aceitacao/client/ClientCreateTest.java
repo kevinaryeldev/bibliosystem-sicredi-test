@@ -6,6 +6,7 @@ import br.com.kevinaryedev.bibliosystem.model.request.ClientCreateRequest;
 import br.com.kevinaryedev.bibliosystem.model.response.ClientResponse;
 import br.com.kevinaryedev.bibliosystem.client.ClientClient;
 import br.com.kevinaryedev.bibliosystem.utils.Utils;
+import br.com.kevinaryeldev.bibliosystem.BaseTest;
 import io.qameta.allure.*;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
@@ -13,7 +14,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-public class ClientCreateTest {
+public class ClientCreateTest extends BaseTest {
 
     ClientCreateRequestFactory clientCreateRequestFactory = ClientCreateRequestFactory.getInstance();
 

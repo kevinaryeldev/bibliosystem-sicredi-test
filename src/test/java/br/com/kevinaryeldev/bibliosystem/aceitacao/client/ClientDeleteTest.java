@@ -3,6 +3,7 @@ package br.com.kevinaryeldev.bibliosystem.aceitacao.client;
 import br.com.kevinaryedev.bibliosystem.client.ClientClient;
 import br.com.kevinaryedev.bibliosystem.model.response.ClientResponse;
 import br.com.kevinaryedev.bibliosystem.utils.PreloadData;
+import br.com.kevinaryeldev.bibliosystem.BaseTest;
 import io.qameta.allure.*;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
@@ -10,7 +11,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-public class ClientDeleteTest {
+public class ClientDeleteTest extends BaseTest {
     PreloadData preloadData = new PreloadData();
     @Test
     @Tag("aceitacao")

@@ -23,5 +23,13 @@ public class RequestSpec {
                 .setContentType(ContentType.JSON)
                 .build();
     }
+    public static RequestSpecification noAuthWithQueryParamPaginationAndPathParamId(String id, Integer page,Integer size){
+        return new RequestSpecBuilder()
+                .addPathParam("id",id)
+                .addQueryParam("page",page)
+                .addQueryParam("size",size)
+                .setContentType(ContentType.JSON)
+                .build();
+    }
 }
 

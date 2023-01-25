@@ -1,67 +1,56 @@
 package br.com.kevinaryedev.bibliosystem.client;
 
-import br.com.kevinaryedev.bibliosystem.data.changeless.ClientData;
+import br.com.kevinaryedev.bibliosystem.data.changeless.CopyData;
 import br.com.kevinaryedev.bibliosystem.spec.RequestSpec;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
 
-public class ClientClient {
-    public static Response createClient(String json){
+public class CopyClient {
+    public static Response createCopy(String json) {
         return given()
                 .log().all()
                 .spec(RequestSpec.noAuth())
                 .body(json)
             .when()
-                .post(ClientData.SERVICE_CREATE)
+                .post(CopyData.SERVICE_CREATE)
             .then()
                 .log().all()
                 .extract().response()
         ;
     }
-    public static Response listClient(Integer page, Integer size){
+    public static Response listCopy(String id,Integer page,Integer size){
         return given()
                 .log().all()
-                .spec(RequestSpec.noAuthWithQueryParamPagination(page,size))
+                .spec(RequestSpec.noAuthWithQueryParamPaginationAndPathParamId(id,page,size))
             .when()
-                .get(ClientData.SERVICE_FIND_ALL)
+                .get(CopyData.SERVICE_FIND_BY_BOOK_ID+"/{id}")
             .then()
                 .log().all()
                 .extract().response()
         ;
     }
-    public static Response editClient(String id, String json){
-        return given()
-                .log().all()
-                .spec(RequestSpec.noAuthWithPathParamId(id))
-                .body(json)
-            .when()
-                .put(ClientData.SERVICE_UPDATE+"/{id}")
-            .then()
-                .log().all()
-                .extract().response()
-        ;
-    }
-    public static Response deleteClient(String id){
+    public static Response deleteCopy(String id){
         return given()
                 .log().all()
                 .spec(RequestSpec.noAuthWithPathParamId(id))
             .when()
-                .delete(ClientData.SERVICE_DELETE+"/{id}")
+                .delete(CopyData.SERVICE_DELETE+"/{id}")
             .then()
                 .log().all()
                 .extract().response()
         ;
     }
-    public static Response findClientById(String id){
+    public static Response findCopyById(String id){
         return given()
                 .log().all()
                 .spec(RequestSpec.noAuthWithPathParamId(id))
             .when()
-                .get(ClientData.SERVICE_FIND_BY_ID+"/{id}")
+                .get(CopyData.SERVICE_FIND_BY_ID+"/{id}")
             .then()
                 .log().all()
                 .extract().response()
         ;
     }
+
 }

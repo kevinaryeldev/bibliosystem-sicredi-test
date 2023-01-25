@@ -1,6 +1,7 @@
 package br.com.kevinaryeldev.bibliosystem.contrato.client;
 
 import br.com.kevinaryedev.bibliosystem.client.ClientClient;
+import br.com.kevinaryeldev.bibliosystem.BaseTest;
 import io.qameta.allure.*;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Tag;
@@ -10,7 +11,7 @@ import java.io.File;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
 
-public class ClientListTest {
+public class ClientListTest  extends BaseTest {
     @Test
     @Tag("contrato")
     @Tag("cliente")
