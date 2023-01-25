@@ -1,2 +1,4 @@
-package br.com.kevinaryeldev.bibliosystem.aceitacao.book;public class BookDeleteTest {
+package br.com.kevinaryeldev.bibliosystem.aceitacao.book;
+
+public class BookDeleteTest {
 }
