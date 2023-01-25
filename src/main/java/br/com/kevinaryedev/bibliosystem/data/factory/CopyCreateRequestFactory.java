@@ -19,7 +19,7 @@ public class CopyCreateRequestFactory {
     public CopyCreateRequest createCopyCreateRequestValid(Integer bookId){
         CopyCreateRequest copy = validCopyCreateRequest.clone();
         copy.setId_book(bookId);
-        return validCopyCreateRequest;
+        return copy;
     }
     public CopyCreateRequest createCopyCreateRequestWithBookIdNull(){
         CopyCreateRequest copy = validCopyCreateRequest.clone();
