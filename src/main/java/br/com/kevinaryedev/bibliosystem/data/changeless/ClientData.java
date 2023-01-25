@@ -1,7 +1,7 @@
-package br.com.kevinaryedev.bibliosystem.data.changeless.data;
+package br.com.kevinaryedev.bibliosystem.data.changeless;
 
 public class ClientData {
-    public static final String SERVICE = "/cliente";
+    public static final String SERVICE = "/bibliosystem/cliente";
     public static final String SERVICE_CREATE = String.format("%s/cadastrar", SERVICE);
     public static final String SERVICE_UPDATE = String.format("%s/editar", SERVICE);
     public static final String SERVICE_DELETE = String.format("%s/deletar", SERVICE);
