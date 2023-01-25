@@ -2,8 +2,6 @@ package br.com.kevinaryedev.bibliosystem.model.response;
 
 import lombok.Getter;
 
-import java.time.LocalDate;
-
 @Getter
 public class ClientResponse {
     private Integer id;
