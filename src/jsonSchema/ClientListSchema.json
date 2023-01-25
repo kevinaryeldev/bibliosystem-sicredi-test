@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "required": [
+    "totalElements",
+    "pageQuantity",
+    "page",
+    "size",
+    "elements"
+  ],
+  "properties": {
+    "totalElements": {
+      "type": "integer"
+    },
+    "pageQuantity": {
+      "type": "integer"
+    },
+    "page": {
+      "type": "integer"
+    },
+    "size": {
+      "type": "integer"
+    },
+    "elements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "document",
+          "email",
+          "gender",
+          "birth_date",
+          "id"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "document": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "birth_date": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}
