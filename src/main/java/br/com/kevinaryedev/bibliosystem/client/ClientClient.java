@@ -13,7 +13,11 @@ public class ClientClient {
                 .spec(RequestSpec.noAuth())
                 .body(json)
             .when()
-                .post(ClientData.SERVICE_CREATE);
+                .post(ClientData.SERVICE_CREATE)
+            .then()
+                .log().all()
+                .extract().response()
+        ;
     }
     public static Response listClient(Integer page, Integer size){
         return given()
