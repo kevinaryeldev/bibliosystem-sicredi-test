@@ -19,7 +19,9 @@ public class ClientCreateRequestFactory {
         }
 
         public ClientCreateRequest createClientCreateRequestValid(){
-            return validClientCreateRequest.clone();
+            ClientCreateRequest client = validClientCreateRequest.clone();
+            client.setDocument(ClientDataConfig.validDocument());
+            return client;
         }
 
         public ClientCreateRequest createClientCreateRequestWithNameNull(){

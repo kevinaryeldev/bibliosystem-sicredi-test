@@ -36,6 +36,7 @@ public class LoanCreateTest extends BaseTest {
         this.client = preloadData.client();
         String idBook = preloadData.book().getId().toString();
         this.copy = preloadData.copy(idBook);
+        System.err.println(copy.getId()+" - "+ client.getId());
     }
 
     @Test
@@ -46,7 +47,8 @@ public class LoanCreateTest extends BaseTest {
     @Feature("Emprestimo")
     @Story("Criar emprestimo")
     public void deveCriarEmprestimoComSucesso() {
-        LoanCreateRequest loan = loanCreateRequestFactory.createLoanCreateRequestValid(client.getId(), copy.getId());
+        System.err.println(copy.getId()+" - "+ client.getId());
+        LoanCreateRequest loan = loanCreateRequestFactory.createLoanCreateRequestValid(copy.getId(),client.getId());
         String json = Utils.converterParaJson(loan);
         Response response = LoanClient.createLoan(json);
         Assert.assertEquals(HttpStatus.SC_CREATED, response.getStatusCode());

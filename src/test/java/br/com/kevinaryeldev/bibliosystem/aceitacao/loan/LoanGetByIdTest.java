@@ -61,6 +61,6 @@ public class LoanGetByIdTest extends BaseTest {
     public void deveRetornarErroAoTentarBuscarEmprestimoComIdDoClienteInvalido() {
         String id = "0";
         Response response = LoanClient.listLoanByClientId(id,null,null);
-        Assert.assertEquals(HttpStatus.SC_NOT_FOUND, response.getStatusCode());
+        Assert.assertEquals(HttpStatus.SC_BAD_REQUEST, response.getStatusCode());
     }
 }

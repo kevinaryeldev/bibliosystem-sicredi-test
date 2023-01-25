@@ -36,7 +36,7 @@ public class ClientClient {
                 .spec(RequestSpec.noAuthWithPathParamId(id))
                 .body(json)
             .when()
-                .put(ClientData.SERVICE_UPDATE+"/{id}")
+                .patch(ClientData.SERVICE_UPDATE+"/{id}")
             .then()
                 .log().all()
                 .extract().response()

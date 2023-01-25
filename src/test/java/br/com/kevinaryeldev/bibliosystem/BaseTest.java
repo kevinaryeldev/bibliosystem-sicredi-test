@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeAll;
 
 public class BaseTest {
     @BeforeAll
-    public void setup(){
+    public static void setup(){
         RestAssured.defaultParser = Parser.JSON;
         RestAssured.baseURI = "http://localhost:8080/bibliosystem";
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();

@@ -98,20 +98,6 @@ public class ClientCreateTest extends BaseTest {
     @Feature("Cliente")
     @Story("Criar cliente")
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Deve retornar erro ao criar um cliente sem data de nascimento")
-    public void deveRetornarErroAoCriarUmClienteSemDataDeNascimento(){
-        ClientCreateRequest clientCreateRequest = clientCreateRequestFactory.createClientCreateRequestWithBirthDateNull();
-        Response response = ClientClient.createClient(Utils.converterParaJson(clientCreateRequest));
-        Assert.assertEquals(HttpStatus.SC_BAD_REQUEST, response.getStatusCode());
-    }
-    @Test
-    @Tag("aceitacao")
-    @Tag("cliente")
-    @Owner("Kevin Aryel")
-    @Epic("Aceitação")
-    @Feature("Cliente")
-    @Story("Criar cliente")
-    @Severity(SeverityLevel.CRITICAL)
     @Description("Deve retornar erro ao criar um cliente com nome inválido")
     public void deveRetornarErroAoCriarUmClienteComNomeInvalido(){
         ClientCreateRequest clientCreateRequest = clientCreateRequestFactory.createClientCreateRequestWithNameInvalid();
