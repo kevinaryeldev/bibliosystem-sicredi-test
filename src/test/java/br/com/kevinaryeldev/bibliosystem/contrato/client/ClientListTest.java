@@ -1,4 +1,4 @@
-package br.com.kevinaryeldev.bibliosystem.contrato.cliente;
+package br.com.kevinaryeldev.bibliosystem.contrato.client;
 
 import br.com.kevinaryedev.bibliosystem.client.ClientClient;
 import io.qameta.allure.*;

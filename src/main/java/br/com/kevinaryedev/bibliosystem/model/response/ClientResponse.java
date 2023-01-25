@@ -1,4 +1,4 @@
-package br.com.kevinaryedev.bibliosystem.response;
+package br.com.kevinaryedev.bibliosystem.model.response;
 
 import lombok.Getter;
 
