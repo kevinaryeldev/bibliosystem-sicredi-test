@@ -1,4 +1,4 @@
-package br.com.kevinaryedev.bibliosystem.data.request.client;
+package br.com.kevinaryedev.bibliosystem.model.request;
 
 import java.time.LocalDate;
 

@@ -1,4 +1,4 @@
-package br.com.kevinaryedev.bibliosystem.data.request.client;
+package br.com.kevinaryedev.bibliosystem.model.request;
 
 public class ClientEditRequestBuilder {
     private String name;
@@ -17,4 +17,9 @@ public class ClientEditRequestBuilder {
         this.gender = gender;
         return this;
     }
+
+    public ClientEditRequest build(){
+        return new ClientEditRequest(name,email,gender);
+    }
+
 }
