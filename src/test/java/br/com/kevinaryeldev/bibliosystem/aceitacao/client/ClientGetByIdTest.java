@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import io.restassured.response.Response;
 public class ClientGetByIdTest  extends BaseTest {
 
-    PreloadData preloadData = new PreloadData();
+    PreloadData preloadData = PreloadData.getInstance();
 
     @Test
     @Tag("aceitacao")

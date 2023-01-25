@@ -18,16 +18,15 @@ import org.junit.jupiter.api.TestInstance;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class CopyCreateTest  extends BaseTest {
-    CopyCreateRequestFactory copyCreateRequestFactory = CopyCreateRequestFactory.getInstance();
-    PreloadData preloadData = new PreloadData();
-    BookResponse book;
 
     @BeforeAll
     public void setupBook() {
-        super.setup();
         this.book = preloadData.book();
-        System.err.println("Book id: " + book.getId());
     }
+    CopyCreateRequestFactory copyCreateRequestFactory = CopyCreateRequestFactory.getInstance();
+    PreloadData preloadData = PreloadData.getInstance();
+    BookResponse book;
+
     @Test
     @Tag("aceitacao")
     @Tag("exemplar")

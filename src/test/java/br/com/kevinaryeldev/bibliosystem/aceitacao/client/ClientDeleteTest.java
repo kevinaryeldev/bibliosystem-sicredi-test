@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 public class ClientDeleteTest extends BaseTest {
-    PreloadData preloadData = new PreloadData();
+    PreloadData preloadData = PreloadData.getInstance();
     @Test
     @Tag("aceitacao")
     @Tag("cliente")

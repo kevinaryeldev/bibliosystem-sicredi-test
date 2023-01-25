@@ -10,12 +10,21 @@ import br.com.kevinaryeldev.bibliosystem.BaseTest;
 import io.qameta.allure.*;
 import io.restassured.response.Response;
 import org.junit.Assert;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class ClientEditTest  extends BaseTest {
-    PreloadData preloadData = new PreloadData();
+    PreloadData preloadData = PreloadData.getInstance();
     ClientEditRequestFactory clientEditRequestFactory = ClientEditRequestFactory.getInstance();
+    ClientResponse clientResponse;
+
+    @BeforeAll
+    public void setupClient() {
+        clientResponse = preloadData.client();
+    }
     @Test
     @Tag("aceitacao")
     @Tag("cliente")
@@ -26,7 +35,6 @@ public class ClientEditTest  extends BaseTest {
     @Severity(SeverityLevel.MINOR)
     @Description("Deve editar um cliente com sucesso")
     public void deveEditarUmClienteComSucesso() {
-        ClientResponse clientResponse = preloadData.client();
         String id = clientResponse.getId().toString();
         ClientEditRequest request = clientEditRequestFactory.createClientEditRequestValid();
         String json = Utils.converterParaJson(request);
@@ -45,7 +53,6 @@ public class ClientEditTest  extends BaseTest {
     @Severity(SeverityLevel.MINOR)
     @Description("Deve retornar erro ao tentar editar um cliente sem nome")
     public void deveRetornarErroAoTentarEditarUmClienteSemNome() {
-        ClientResponse clientResponse = preloadData.client();
         String id = clientResponse.getId().toString();
         ClientEditRequest request = clientEditRequestFactory.createClientEditRequestWithNameNull();
         String json = Utils.converterParaJson(request);
@@ -62,7 +69,6 @@ public class ClientEditTest  extends BaseTest {
     @Severity(SeverityLevel.MINOR)
     @Description("Deve retornar erro ao tentar editar um cliente com nome inválido")
     public void deveRetornarErroAoTentarEditarUmClienteComNomeInvalido() {
-        ClientResponse clientResponse = preloadData.client();
         String id = clientResponse.getId().toString();
         ClientEditRequest request = clientEditRequestFactory.createClientEditRequestWithNameInvalid();
         String json = Utils.converterParaJson(request);
@@ -79,7 +85,6 @@ public class ClientEditTest  extends BaseTest {
     @Severity(SeverityLevel.MINOR)
     @Description("Deve retornar erro ao tentar editar um cliente sem email")
     public void deveRetornarErroAoTentarEditarUmClienteSemEmail() {
-        ClientResponse clientResponse = preloadData.client();
         String id = clientResponse.getId().toString();
         ClientEditRequest request = clientEditRequestFactory.createClientEditRequestWithEmailNull();
         String json = Utils.converterParaJson(request);
@@ -96,7 +101,6 @@ public class ClientEditTest  extends BaseTest {
     @Severity(SeverityLevel.MINOR)
     @Description("Deve retornar erro ao tentar editar um cliente com email inválido")
     public void deveRetornarErroAoTentarEditarUmClienteComEmailInvalido() {
-        ClientResponse clientResponse = preloadData.client();
         String id = clientResponse.getId().toString();
         ClientEditRequest request = clientEditRequestFactory.createClientEditRequestWithEmailInvalid();
         String json = Utils.converterParaJson(request);
@@ -113,7 +117,6 @@ public class ClientEditTest  extends BaseTest {
     @Severity(SeverityLevel.MINOR)
     @Description("Deve retornar erro ao tentar editar um cliente sem genero")
     public void deveRetornarErroAoTentarEditarUmClienteSemGenero() {
-        ClientResponse clientResponse = preloadData.client();
         String id = clientResponse.getId().toString();
         ClientEditRequest request = clientEditRequestFactory.createClientEditRequestWithGenderNull();
         String json = Utils.converterParaJson(request);
@@ -130,7 +133,6 @@ public class ClientEditTest  extends BaseTest {
     @Severity(SeverityLevel.MINOR)
     @Description("Deve retornar erro ao tentar editar um cliente com genero inválido")
     public void deveRetornarErroAoTentarEditarUmClienteComGeneroInvalido() {
-        ClientResponse clientResponse = preloadData.client();
         String id = clientResponse.getId().toString();
         ClientEditRequest request = clientEditRequestFactory.createClientEditRequestWithGenderInvalid();
         String json = Utils.converterParaJson(request);
