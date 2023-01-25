@@ -1,0 +1,110 @@
+{
+  "type": "object",
+  "required": [
+    "totalElements",
+    "pageQuantity",
+    "page",
+    "size",
+    "elements"
+  ],
+  "properties": {
+    "totalElements": {
+      "type": "number"
+    },
+    "pageQuantity": {
+      "type": "number"
+    },
+    "page": {
+      "type": "number"
+    },
+    "size": {
+      "type": "number"
+    },
+    "elements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "status",
+          "loan_date",
+          "return_date",
+          "copy",
+          "client"
+        ],
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "status": {
+            "type": "string"
+          },
+          "loan_date": {
+            "type": "string"
+          },
+          "return_date": {
+            "type": "string"
+          },
+          "copy": {
+            "type": "object",
+            "required": [
+              "year",
+              "property_code",
+              "edition",
+              "id_book",
+              "id"
+            ],
+            "properties": {
+              "year": {
+                "type": "string"
+              },
+              "property_code": {
+                "type": "string"
+              },
+              "edition": {
+                "type": "string"
+              },
+              "id_book": {
+                "type": "number"
+              },
+              "id": {
+                "type": "number"
+              }
+            }
+          },
+          "client": {
+            "type": "object",
+            "required": [
+              "name",
+              "document",
+              "email",
+              "gender",
+              "birth_date",
+              "id"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "document": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "gender": {
+                "type": "string"
+              },
+              "birth_date": {
+                "type": "string"
+              },
+              "id": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
