@@ -1,2 +1,4 @@
-package br.com.kevinaryeldev.bibliosystem.aceitacao.book;public class BookCreateTest {
+package br.com.kevinaryeldev.bibliosystem.aceitacao.book;
+
+public class BookCreateTest {
 }

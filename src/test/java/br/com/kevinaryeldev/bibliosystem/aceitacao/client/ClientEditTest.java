@@ -1,7 +1,8 @@
-package br.com.kevinaryeldev.bibliosystem.aceitacao.cliente;
+package br.com.kevinaryeldev.bibliosystem.aceitacao.client;
 
 import br.com.kevinaryedev.bibliosystem.client.ClientClient;
 import br.com.kevinaryedev.bibliosystem.data.factory.ClientEditRequestFactory;
+import br.com.kevinaryedev.bibliosystem.data.provider.DataProvider;
 import br.com.kevinaryedev.bibliosystem.model.request.ClientEditRequest;
 import br.com.kevinaryedev.bibliosystem.model.response.ClientResponse;
 import br.com.kevinaryedev.bibliosystem.utils.PreloadData;
@@ -13,6 +14,8 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 public class ClientEditTest {
+    PreloadData preloadData = new PreloadData();
+    ClientEditRequestFactory clientEditRequestFactory = new ClientEditRequestFactory(DataProvider.getValidClientEditRequest());
     @Test
     @Tag("aceitacao")
     @Tag("cliente")
@@ -23,9 +26,9 @@ public class ClientEditTest {
     @Severity(SeverityLevel.MINOR)
     @Description("Deve editar um cliente com sucesso")
     public void deveEditarUmClienteComSucesso() {
-        ClientResponse clientResponse = PreloadData.client();
+        ClientResponse clientResponse = preloadData.client();
         String id = clientResponse.getId().toString();
-        ClientEditRequest request = ClientEditRequestFactory.clientEditRequestValid();
+        ClientEditRequest request = clientEditRequestFactory.createClientEditRequestValid();
         String json = Utils.converterParaJson(request);
         Response response = ClientClient.editClient(id, json);
         Assert.assertEquals(200, response.getStatusCode());
@@ -42,9 +45,9 @@ public class ClientEditTest {
     @Severity(SeverityLevel.MINOR)
     @Description("Deve retornar erro ao tentar editar um cliente sem nome")
     public void deveRetornarErroAoTentarEditarUmClienteSemNome() {
-        ClientResponse clientResponse = PreloadData.client();
+        ClientResponse clientResponse = preloadData.client();
         String id = clientResponse.getId().toString();
-        ClientEditRequest request = ClientEditRequestFactory.clientEditRequestNullName();
+        ClientEditRequest request = clientEditRequestFactory.createClientEditRequestWithNameNull();
         String json = Utils.converterParaJson(request);
         Response response = ClientClient.editClient(id, json);
         Assert.assertEquals(400, response.getStatusCode());
@@ -59,9 +62,9 @@ public class ClientEditTest {
     @Severity(SeverityLevel.MINOR)
     @Description("Deve retornar erro ao tentar editar um cliente com nome inválido")
     public void deveRetornarErroAoTentarEditarUmClienteComNomeInvalido() {
-        ClientResponse clientResponse = PreloadData.client();
+        ClientResponse clientResponse = preloadData.client();
         String id = clientResponse.getId().toString();
-        ClientEditRequest request = ClientEditRequestFactory.clientEditRequestInvalidName();
+        ClientEditRequest request = clientEditRequestFactory.createClientEditRequestWithNameInvalid();
         String json = Utils.converterParaJson(request);
         Response response = ClientClient.editClient(id, json);
         Assert.assertEquals(400, response.getStatusCode());
@@ -76,9 +79,9 @@ public class ClientEditTest {
     @Severity(SeverityLevel.MINOR)
     @Description("Deve retornar erro ao tentar editar um cliente sem email")
     public void deveRetornarErroAoTentarEditarUmClienteSemEmail() {
-        ClientResponse clientResponse = PreloadData.client();
+        ClientResponse clientResponse = preloadData.client();
         String id = clientResponse.getId().toString();
-        ClientEditRequest request = ClientEditRequestFactory.clientEditRequestNullEmail();
+        ClientEditRequest request = clientEditRequestFactory.createClientEditRequestWithEmailNull();
         String json = Utils.converterParaJson(request);
         Response response = ClientClient.editClient(id, json);
         Assert.assertEquals(400, response.getStatusCode());
@@ -93,9 +96,9 @@ public class ClientEditTest {
     @Severity(SeverityLevel.MINOR)
     @Description("Deve retornar erro ao tentar editar um cliente com email inválido")
     public void deveRetornarErroAoTentarEditarUmClienteComEmailInvalido() {
-        ClientResponse clientResponse = PreloadData.client();
+        ClientResponse clientResponse = preloadData.client();
         String id = clientResponse.getId().toString();
-        ClientEditRequest request = ClientEditRequestFactory.clientEditRequestInvalidEmail();
+        ClientEditRequest request = clientEditRequestFactory.createClientEditRequestWithEmailInvalid();
         String json = Utils.converterParaJson(request);
         Response response = ClientClient.editClient(id, json);
         Assert.assertEquals(400, response.getStatusCode());
@@ -110,9 +113,9 @@ public class ClientEditTest {
     @Severity(SeverityLevel.MINOR)
     @Description("Deve retornar erro ao tentar editar um cliente sem genero")
     public void deveRetornarErroAoTentarEditarUmClienteSemGenero() {
-        ClientResponse clientResponse = PreloadData.client();
+        ClientResponse clientResponse = preloadData.client();
         String id = clientResponse.getId().toString();
-        ClientEditRequest request = ClientEditRequestFactory.clientEditRequestNullGender();
+        ClientEditRequest request = clientEditRequestFactory.createClientEditRequestWithGenderNull();
         String json = Utils.converterParaJson(request);
         Response response = ClientClient.editClient(id, json);
         Assert.assertEquals(400, response.getStatusCode());
@@ -127,9 +130,9 @@ public class ClientEditTest {
     @Severity(SeverityLevel.MINOR)
     @Description("Deve retornar erro ao tentar editar um cliente com genero inválido")
     public void deveRetornarErroAoTentarEditarUmClienteComGeneroInvalido() {
-        ClientResponse clientResponse = PreloadData.client();
+        ClientResponse clientResponse = preloadData.client();
         String id = clientResponse.getId().toString();
-        ClientEditRequest request = ClientEditRequestFactory.clientEditRequestInvalidGender();
+        ClientEditRequest request = clientEditRequestFactory.createClientEditRequestWithGenderInvalid();
         String json = Utils.converterParaJson(request);
         Response response = ClientClient.editClient(id, json);
         Assert.assertEquals(400, response.getStatusCode());

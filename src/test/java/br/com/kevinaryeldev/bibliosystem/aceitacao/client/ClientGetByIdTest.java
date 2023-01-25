@@ -1,4 +1,4 @@
-package br.com.kevinaryeldev.bibliosystem.aceitacao.cliente;
+package br.com.kevinaryeldev.bibliosystem.aceitacao.client;
 
 import br.com.kevinaryedev.bibliosystem.client.ClientClient;
 import br.com.kevinaryedev.bibliosystem.model.response.ClientResponse;
@@ -11,6 +11,8 @@ import org.junit.jupiter.api.Test;
 import io.restassured.response.Response;
 public class ClientGetByIdTest {
 
+    PreloadData preloadData = new PreloadData();
+
     @Test
     @Tag("aceitacao")
     @Tag("cliente")
@@ -18,10 +20,10 @@ public class ClientGetByIdTest {
     @Epic("Aceitação")
     @Feature("Cliente")
     @Story("Buscar cliente por id")
-    @Severity(SeverityLevel.MINOR)
+    @Severity(SeverityLevel.NORMAL)
     @Description("Deve retornar um cliente com sucesso")
     public void deveRetornarUmClienteComSucesso() {
-        ClientResponse clientResponse = PreloadData.client();
+        ClientResponse clientResponse = preloadData.client();
         String id = clientResponse.getId().toString();
         Response response = ClientClient.findClientById(id);
         Assert.assertEquals(HttpStatus.SC_OK, response.getStatusCode());
